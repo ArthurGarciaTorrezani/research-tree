@@ -1,8 +1,8 @@
 public class Node {
-     Node right;
-     Node left;
-     String lines;
-     String value;
+     private Node right;
+     private Node left;
+     private String lines;
+     private String value;
 
      public Node(String value, String line){
           this.value = value;
