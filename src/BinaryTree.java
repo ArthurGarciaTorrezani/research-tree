@@ -14,34 +14,31 @@ public class BinaryTree {
           if (current == null)
                return newNode; // dois tres testando final
 
-          String wordDad = current.getValue();
-          String wordSon = newNode.getValue();
-          
+          String wordDad = current.getword();
+          String wordSon = newNode.getword();
+
           if (wordDad.compareTo(wordSon) < 0) {
-               System.out.println(wordDad.compareTo(wordSon) +  " " +wordDad +" " + wordSon);
                current.setRight(insertNewNode(newNode, current.getRight()));
           }
           if (wordDad.compareTo(wordSon) > 0) {
-               System.out.println(wordDad.compareTo(wordSon) +  " " +wordDad +" " + wordSon);
                current.setLeft(insertNewNode(newNode, current.getLeft()));
           }
-          if(wordDad.compareTo(wordSon) == 0){
-               System.out.println(wordDad.compareTo(wordSon) +  " " +wordDad +" " + wordSon);
-               current.setLines(current.getLines() + newNode.getLines());
+          if (wordDad.compareTo(wordSon) == 0) {
+               current.setLines(newNode.getFirstLine());
           }
 
           return current;
      }
 
-     public void preOrder() {
-          preOrder(root);
+     public void order() {
+          order(root);
      }
 
-     private void preOrder(Node element) {
+     private void order(Node element) {
           if (element != null) {
-               System.out.println(element.getValue() +" " +element.getLines()); // R
-               preOrder(element.getLeft()); // E
-               preOrder(element.getRight()); // D
+               order(element.getLeft()); // E
+               System.out.println(element.getword() + " " + element.getListLines().imprimir()); // R
+               order(element.getRight()); // D
           }
      }
 

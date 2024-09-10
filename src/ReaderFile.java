@@ -15,17 +15,23 @@ public class ReaderFile {
                BinaryTree tree = new BinaryTree();
 
                while (line != null) {
+                    line = line.replace(",", "");
+                    line = line.replace(".", "");
                     String[] words = line.split(" ");
                    
 
                     for (String word : words) {
-                         tree.insert(new Node(word.toLowerCase(), " "+contLine));
+                         word = word.toLowerCase();
+                         if(word.length() > 2){
+                              tree.insert(new Node(word, contLine));
+                         }
+                        
                     }
 
                     contLine++;
                     line = reader.readLine();
                }
-               tree.preOrder();
+               tree.order();
                reader.close();
 
           } catch (IOException e) {

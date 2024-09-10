@@ -1,12 +1,27 @@
 public class Node {
      private Node right;
      private Node left;
-     private String lines;
-     private String value;
+     private ListLine liness;
+     private String word;
+     private int firstLine;
 
-     public Node(String value, String line){
-          this.value = value;
-          lines = line;
+     public Node(String word, int line){
+          this.word = word;
+          this.firstLine = line;
+          liness = new ListLine();
+          liness.insertEnd(new Line(line));
+     }
+
+     public ListLine getListLines(){
+          return liness;
+     }
+
+     public int getFirstLine(){
+          return firstLine;
+     }
+
+     public void setLines(int line) {
+          liness.insertEnd(new Line(line));
      }
 
      public Node getRight() {
@@ -25,20 +40,12 @@ public class Node {
           this.left = left;
      }
 
-     public String getLines() {
-          return lines;
+     public String getword() {
+          return word;
      }
 
-     public void setLines(String lines) {
-          this.lines = lines;
-     }
-
-     public String getValue() {
-          return value;
-     }
-
-     public void setValue(String value) {
-          this.value = value;
+     public void setword(String word) {
+          this.word = word;
      }
 
 }
