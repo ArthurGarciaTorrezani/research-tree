@@ -4,12 +4,13 @@ public class Node {
      private ListLine liness;
      private String word;
      private int firstLine;
-
+     private int height;
      public Node(String word, int line){
           this.word = word;
           this.firstLine = line;
           liness = new ListLine();
           liness.insertEnd(new Line(line));
+          height = 1;
      }
 
      public ListLine getListLines(){
@@ -46,6 +47,14 @@ public class Node {
 
      public void setword(String word) {
           this.word = word;
+     }
+
+     public int getHeight() {
+          return height;
+     }
+
+     public void setHeight(int height) {
+          this.height = height;
      }
 
 }
